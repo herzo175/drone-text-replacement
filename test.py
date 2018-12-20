@@ -13,7 +13,7 @@ def main():
         path = f"tests/{test}"
         if os.path.isdir(path) and test != "." and test != "..":
             dotenv.load_dotenv(dotenv_path=path)
-            print(environ)
+            print(os.environ)
             test_filename = os.environ["PLUGIN_FILENAME"]
             comparison_filename = glob.glob(f"{path}/*solution*")
 
