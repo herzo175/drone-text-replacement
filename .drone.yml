@@ -20,7 +20,7 @@ name: build
 
 steps:
   - name: build
-    image: docker
+    image: plugins/docker
     settings:
       repo: jeremyaherzog/drone-text-replacement
       username:
