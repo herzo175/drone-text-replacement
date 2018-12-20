@@ -2,6 +2,7 @@ import sys
 import os
 import filecmp
 import glob
+import pathlib
 
 import dotenv
 
@@ -12,7 +13,7 @@ def main():
     for test in os.listdir("tests"):
         path = f"tests/{test}"
         if os.path.isdir(path) and test != "." and test != "..":
-            dotenv.load_dotenv(dotenv_path=path)
+            dotenv.load_dotenv(dotenv_path=pathlib.Path(path))
             print(os.environ)
             test_filename = os.environ["PLUGIN_FILENAME"]
             comparison_filename = glob.glob(f"{path}/*solution*")
