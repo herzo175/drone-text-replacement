@@ -1,0 +1,26 @@
+kind: pipeline
+name: drone-text-replacement
+
+steps:
+  - test:
+    image: python
+    commands:
+      - pip install dotenv
+      - python test.py
+  - name: build
+    image: docker
+    settings:
+      repo: jeremyaherzog/drone-text-replacement
+      username:
+        from_secret: docker_user
+      password:
+        from_secret: docker_pass
+      tags:
+        - latest
+        - "0.0.0" # NOTE: update this semver tag when making changes!
+
+trigger:
+  branch:
+  - master
+  event:
+  - push

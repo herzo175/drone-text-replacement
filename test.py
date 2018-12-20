@@ -1,0 +1,30 @@
+import sys
+import os
+import filecmp
+import glob
+
+import dotenv
+
+import index
+
+
+def main():
+    for test in os.listdir("tests"):
+        path = f"tests/{test}"
+        if os.path.isdir(path) and test != "." and test != "..":
+            # os.chdir(f"tests/{test}")
+
+            dotenv.load_dotenv(dotenv_path=path)
+            test_filename = glob.glob(f"{path}/*test*")
+            comparison_filename = glob.glob(f"{path}/*solution*")
+
+            index.main()
+
+            if not filecmp.cmp(test_filename, comparison_filename):
+                sys.exit(1)
+
+            # os.chdir("../..")
+
+
+if __name__ == "__main__":
+    main()
