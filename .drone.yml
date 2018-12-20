@@ -1,5 +1,5 @@
 kind: pipeline
-name: drone-text-replacement
+name: test
 
 steps:
   - name: test
@@ -7,6 +7,18 @@ steps:
     commands:
       - pip install python-dotenv
       - python test.py
+
+trigger:
+  branch:
+  - master
+  event:
+  - push
+  - pull_request
+---
+kind: pipeline
+name: build
+
+steps:
   - name: build
     image: docker
     settings:
@@ -24,3 +36,6 @@ trigger:
   - master
   event:
   - push
+
+depends_on:
+  - test
