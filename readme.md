@@ -6,7 +6,7 @@ step. You can use this to temporarily substitute tags and secrets at build time
 ## Usage
 
 Just set the mappings through the plugin settings. The keys must be uppercase
-in the target file and be surrounded by handlebars ({{ <word> }}). Only the
+in the target file and be surrounded by {{ handlebars }}. Only the
 filename setting is mandatory
 
 * .drone.yml:
