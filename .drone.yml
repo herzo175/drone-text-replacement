@@ -29,7 +29,7 @@ steps:
         from_secret: docker_pass
       tags:
         - latest
-        - "0.0.1" # NOTE: update this semver tag when making changes!
+        - "0.1.0" # NOTE: update this semver tag when making changes!
         - ${DRONE_COMMIT_SHA}
 
 trigger:

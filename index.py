@@ -50,6 +50,8 @@ def main():
 
     replace_file(filename, replacements)
 
+    print(f"Finished replacing text in {filename}")
+
 
 if __name__ == "__main__":
     main()
