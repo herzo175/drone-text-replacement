@@ -3,4 +3,4 @@ FROM python:3.7-alpine
 WORKDIR /app
 ADD . .
 
-ENTRYPOINT [ "python", "index.py"]
+ENTRYPOINT [ "python", "/app/index.py"]
