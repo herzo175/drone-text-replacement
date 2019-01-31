@@ -31,7 +31,7 @@ def replace_line(line, regex, replacements):
 
 def replace_file(filename, replacements):
     with fileinput.FileInput(filename, inplace="True") as file:
-        # replacements = {"poo": "hello", "pee": "world"}
+        # replacements = {"foo": "hello", "bar": "world"}
         regex = get_regex(replacements.keys())
 
         for line in file:
